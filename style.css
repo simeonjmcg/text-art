@@ -1,0 +1,37 @@
+#image {
+	font-family: "Courier New", Monospaced, sans-sarif;
+	color: black;
+	background-color: white;
+	cursor: crosshair;
+	white-space: pre;
+}
+.toolbox {
+	font-family: "Courier New";
+	font-size:10px;
+}
+.toolbox td {
+	text-align: center;
+	cursor: pointer;
+	padding: 5px;
+	border: 1px solid black;
+}
+.toolbox td[selected]{
+	color: white;
+	background-color: black;
+	cursor: none;
+}
+
+.checktool {
+	font-family: "Courier New";
+	font-size:10px;
+	text-align: center;
+	cursor: pointer;
+	padding: 5px;
+	border: 1px solid black;
+}
+.checktool[selected]{
+	color: white;
+	background-color: black;
+	cursor: none;
+}
+

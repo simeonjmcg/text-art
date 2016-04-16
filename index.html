@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" type="image/x-icon" href="/icon.ico">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Text Art Creator</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	</head>
+	<body>
+
+		<div>
+			<button id="reset">Reset</button> <button id="new">New File</button> font size: <input type="text" id="size" value="16" style="width: 40px" /> px
+		</div>
+		<div>
+			Line Color: <select id="foreground">
+				<option>░</option>
+				<option>▒</option>
+				<option selected="selected">▓</option>
+				<option>.</option>
+				<option>*</option>
+				<option>$</option>
+				<option>#</option>
+				<option>@</option>
+				<option>other</option>
+			</select>
+			<input type="hidden" id="foreground_other" style="width:15px;" maxlength="1" value="#"/>
+			Background Color: <select id="background">
+				<option selected="selected">░</option>
+				<option>▒</option>
+				<option>▓</option>
+				<option>.</option>
+				<option>*</option>
+				<option>$</option>
+				<option>#</option>
+				<option>@</option>
+				<option>other</option>
+			</select>
+			<input type="hidden" id="background_other"style="width:15px;"  maxlength="1" value=" "/>
+
+		</div>
+		<table>
+			<tr>
+				<td>
+					<table id="toolT" class="toolbox" oncontextmenu="return false;" style='-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;'  unselectable='on' onselectstart='return false;'  onmousedown='return false;'>
+						<tr>
+							<td selected value='0'>
+								Pen
+							</td>
+							<td value='1'>
+								Line
+							</td>
+						</tr>
+						<tr>
+							<td value='2'>
+								Elipse
+							</td>
+							<td value='3'>
+								Rectangle
+							</td>
+						</tr>
+					</table>
+					<table id="penT" class="toolbox" oncontextmenu="return false;" style='-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;'  unselectable='on' onselectstart='return false;'  onmousedown='return false;'>
+						<tr>
+							<td selected value='{"0":[0]}'>
+								▓
+							</td>
+							<td value='{"0":[0,1],"1":[0,1]}'>
+								▓▓<br>
+								▓▓
+							</td>
+						</tr>
+						<tr>
+							<td value='{"-1":[0],"0":[-1,0,1],"1":[0]}'>
+								▓<br>
+								▓▓▓<br>
+								▓
+							</td>
+							<td value='{"-1":[-1,0,1],"0":[-1,0,1],"1":[-1,0,1]}'>
+								▓▓▓<br>
+								▓▓▓<br>
+								▓▓▓
+							</td>
+						</tr>
+						<tr>
+							<td value='{"-1":[0,1],"0":[-1,0,1,2],"1":[0,1]}'>
+								▓▓<br>
+								▓▓▓▓<br>
+								▓▓
+							</td>
+							<td value='{"-1":[-1,0,1,2],"0":[-1,0,1,2],"1":[-1,0,1,2]}'>
+								▓▓▓▓<br>
+								▓▓▓▓<br>
+								▓▓▓▓
+
+							</td>
+						</tr>
+						<tr>
+							<td value='{"-1":[0,1],"0":[-1,0,1,2],"1":[-1,0,1,2],"2":[0,1]}'>
+								▓▓<br>
+								▓▓▓▓<br>
+								▓▓▓▓<br>
+								▓▓
+
+							</td>
+							<td value='{"-1":[-1,0,1,2],"0":[-1,0,1,2],"1":[-1,0,1,2],"2":[-1,0,1,2]}'>
+								▓▓▓▓<br>
+								▓▓▓▓<br>
+								▓▓▓▓<br>
+								▓▓▓▓
+							</td>
+						</tr>
+						<tr>
+							<td value='{"-1":[-1,0,1],"0":[-2,-1,0,1,2],"1":[-2,-1,0,1,2],"2":[-1,0,1]}'>
+								▓▓▓<br>
+								▓▓▓▓▓<br>
+								▓▓▓▓▓<br>
+								▓▓▓
+
+							</td>
+							<td value='{"-1":[-2,-1,0,1,2],"0":[-2,-1,0,1,2],"1":[-2,-1,0,1,2],"2":[-2,-1,0,1,2]}'>
+								▓▓▓▓▓<br>
+								▓▓▓▓▓<br>
+								▓▓▓▓▓<br>
+								▓▓▓▓▓
+							</td>
+						</tr>
+					</table>
+					<div id = "filled" class="checktool">
+						Filled
+					</div>
+				</td>
+				<td>
+					<div id = "imgdiv">
+						<span id="image" oncontextmenu="return false;"  style='-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;'  unselectable='on' onselectstart='return false;'  onmousedown='return false;'></span>
+					</div>
+					<div>
+						<button id = "output">Output Text</button> <button id="undo">Undo</button> <button id="redo">Redo</button>
+					</div>
+
+				</td>
+			</tr>
+		</table>
+		<div>
+			<textarea id="out" wrap="off"></textarea>
+		</div>
+
+		<script src="art.js"></script>
+	</body>
+</html>
